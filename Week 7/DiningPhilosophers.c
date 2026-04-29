@@ -1,20 +1,17 @@
 #include <stdio.h>
-
 #define MAX 10
-
 int chopstick[5] = {1,1,1,1,1};
 int room;
 int n, hungry;
 int pos[MAX];
 
-// function prototypes
 void think(int p);
 void eat(int p);
 void wait(int *s);
 void signal(int *s);
 
 void wait(int *s) {
-    while(*s <= 0); // busy wait
+    while(*s <= 0); 
     (*s)--;
 }
 
@@ -23,7 +20,7 @@ void signal(int *s) {
 }
 
 void think(int p) {
-    // just placeholder
+    
 }
 
 void eat(int p) {
@@ -36,13 +33,13 @@ void philosopher(int i) {
 
     wait(&room);
 
-    wait(&chopstick[i-1]);              // left
-    wait(&chopstick[i % 5]);            // right
+    wait(&chopstick[i-1]);              
+    wait(&chopstick[i % 5]);           
 
     eat(i);
 
-    signal(&chopstick[i-1]);            // release left
-    signal(&chopstick[i % 5]);          // release right
+    signal(&chopstick[i-1]);           
+    signal(&chopstick[i % 5]);         
 
     signal(&room);
 }
