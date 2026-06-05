@@ -17,7 +17,7 @@ void sortByPeriod(int id[],float C[],float T[],int n) {
 
                 tempT=T[i];
                 T[i]=T[j];
-                T[j]=empT;
+                T[j]=tempT;
             }
         }
     }
